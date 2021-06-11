@@ -1,0 +1,40 @@
+<div class="containerDiv">
+  <div class="bgImg">
+    <img src="./assets/images/newLoginIcon.svg" alt="xzx">
+  </div>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="row mb-3 emailDiv">
+      <div class="emailLabel">
+        <i class="far fa-user"></i>
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    </div>
+      <div class="col-sm-10 inp">
+        <input type="email" class="form-control" id="inputEmail3" formControlName = "email" required>  
+      </div>
+    </div>
+    <div class="row mb-3 passDiv">
+      <div class="passLabel">
+        <i class="fas fa-unlock-alt"></i>
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      </div>
+      
+      <div class="col-sm-10 inp">
+        <input type="password" class="form-control {{myForm.controls.password.errors !== null ? 'error':''}}" id="inputPassword3" formControlName = "password">
+      </div>
+    </div>
+    <div class="btnDiv">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div> 
+    <div class="validDiv" *ngIf = "validate === 'valid'">
+      <h3>Login Succesfull</h3>
+    </div>
+    <div class="invalidDiv" *ngIf = "validate === 'invalid'">
+      <h3>Please fill correct details</h3>
+    </div>
+  </form>
+</div>
+
+
+
+
+
